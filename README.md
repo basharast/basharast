@@ -1,4 +1,4 @@
-# How am I
+# Who am I
 
 I'm Bashar Astifan, not a software engineer nor paid developer
 
@@ -9,8 +9,6 @@ diving into the sea of opensource stuff to build hope
 ## What I do
 
 I build solutions and critic things that I see it wrong
-
-I cannot move on wrong things such as GPL and similar
 
 if you're new or young listen to me:
 
