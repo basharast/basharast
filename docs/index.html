@@ -1,0 +1,2099 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Astifan Online — Bashar Astifan</title>
+  <meta name="description"
+    content="Astifan Online — Community & Smart Services by Bashar Astifan. Projects, systems, tools, and AI-driven media." />
+  <meta property="og:title" content="Astifan Online — Bashar Astifan" />
+  <meta property="og:description"
+    content="Community & Smart Services. Explore ImMobile, Astifan System, SPECTAI, Windows Universal Tool, RetriXGold, and more." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="shortcut icon" href="./assets/fav.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #0f172a;
+      --card-2: #111a33;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #5eead4;
+      --accent-2: #60a5fa;
+      --ring: rgba(94, 234, 212, .35);
+      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+      --radius: 16px;
+      --radius-sm: 12px;
+      --maxw: 1200px;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7fafc;
+        --card: #ffffff;
+        --card-2: #f2f5fb;
+        --text: #0b1020;
+        --muted: #4b5563;
+        --ring: rgba(96, 165, 250, .25);
+        --shadow: 0 10px 30px rgba(2, 6, 23, .08);
+      }
+
+      .hero .brand {
+        background: linear-gradient(90deg, #0ea5e9, #0f766e);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 70% -10%, #13203f 0%, transparent 60%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(180%) blur(10px);
+      background: linear-gradient(180deg, rgba(2, 6, 23, .75), rgba(2, 6, 23, .35));
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: .2px;
+      font-size: 1.1rem
+    }
+
+    .tag {
+      font-weight: 600;
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 10px;
+      align-items: center
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .08);
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      transition: .15s ease;
+      border-color: rgba(255, 255, 255, .18)
+    }
+
+    .ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, .14)
+    }
+
+    /* Hero */
+    .hero {
+      padding: 70px 0 40px
+    }
+
+    .hero-inner {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center
+    }
+
+    .hero-card {
+      background:
+        radial-gradient(800px 400px at 20% -20%, rgba(94, 234, 212, .08), transparent 60%),
+        linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.15;
+      letter-spacing: .3px
+    }
+
+    .hero p {
+      margin: 0 0 20px;
+      color: var(--muted)
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px
+    }
+
+    .badge {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(94, 234, 212, .08);
+      border: 1px solid rgba(94, 234, 212, .25);
+      font-weight: 600;
+      font-size: .85rem
+    }
+
+    .hero-aside {
+      display: grid;
+      gap: 14px
+    }
+
+    .stat {
+      border-radius: var(--radius);
+      padding: 18px;
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .08)
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      line-height: 1.2
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    /* Section */
+    section {
+      padding: 40px 0
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 1.4rem;
+      letter-spacing: .3px
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    /* Projects */
+    .grid {
+      display: grid;
+      gap: 16px
+    }
+
+    .grid.projects {
+      grid-template-columns: repeat(12, 1fr)
+    }
+
+    .project {
+      grid-column: span 6;
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 18px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18)
+    }
+
+    .project .icon {
+      flex: 0 0 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(120px 80px at -20% -20%, rgba(96, 165, 250, .15), transparent 60%), #0b1020;
+      border: 1px solid rgba(255, 255, 255, .08)
+    }
+
+    .project h3 {
+      margin: 2px 0 6px;
+      font-size: 1.05rem
+    }
+
+    .project p {
+      margin: 0 0 10px;
+      color: var(--muted)
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center
+    }
+
+    .readmore {
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      font-weight: 600;
+      font-size: .9rem;
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+    }
+
+    .readmore:hover {
+      border-color: rgba(255, 255, 255, .22)
+    }
+
+    /* About */
+    .about {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr 1fr
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow)
+    }
+
+    .list {
+      margin: 10px 0 0;
+      padding: 0 0 0 16px
+    }
+
+    .list li {
+      margin: 6px 0;
+      color: var(--muted)
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px
+    }
+
+    .chip {
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .9rem;
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0 70px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .foot {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: .9rem
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: 1fr
+      }
+
+      .project {
+        grid-column: span 12
+      }
+
+      .about {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* Focus ring */
+    :focus-visible {
+      outline: 2px solid var(--ring);
+      outline-offset: 2px;
+      border-radius: 10px
+    }
+
+    /* SVG icons sizing */
+    .i {
+      width: 22px;
+      height: 22px
+    }
+
+    /* --- Elegant accents & UI polish --- */
+    :root {
+      /* extra accents you can reuse anywhere */
+      --cyan: #22d3ee;
+      --blue: #60a5fa;
+      --violet: #a78bfa;
+      --rose: #fb7185;
+      --amber: #fbbf24;
+      --emerald: #34d399;
+    }
+
+    /* Re-energize buttons */
+    .btn {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background:
+        radial-gradient(120% 200% at 100% -30%, rgba(96, 165, 250, .20), transparent 60%),
+        linear-gradient(180deg, var(--card-2), var(--card));
+      transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .24);
+      box-shadow: 0 10px 30px rgba(2, 6, 23, .4), 0 0 0 2px rgba(96, 165, 250, .12) inset;
+    }
+
+    /* Read More buttons – consistent sizing + subtle accent on hover */
+    .readmore {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      min-height: 38px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      font-weight: 600;
+      font-size: .92rem;
+      background:
+        radial-gradient(100% 140% at 110% -10%, rgba(94, 234, 212, .16), transparent 60%),
+        linear-gradient(180deg, var(--card-2), var(--card));
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+
+    .readmore:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, .24);
+      box-shadow: 0 8px 24px rgba(2, 6, 23, .35), 0 0 0 2px var(--ring) inset;
+    }
+
+    /* Projects: accents + layout fixes so actions align */
+    .grid.projects {
+      align-items: stretch;
+    }
+
+    /* make all cards equal height */
+
+    .project {
+      position: relative;
+      isolation: isolate;
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .project:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18);
+      box-shadow: 0 16px 40px rgba(2, 6, 23, .45);
+    }
+
+    /* give each project its own local --accent (set by a small class) */
+    .project {
+      --accent: var(--accent, var(--accent-2));
+      /* default fallback */
+      --accent-soft: color-mix(in oklab, var(--accent) 30%, transparent);
+      --accent-ring: color-mix(in oklab, var(--accent) 45%, transparent);
+    }
+
+    /* a soft glow line at the top of each card */
+    .project::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    /* icon picks up the accent */
+    .project .icon {
+      background:
+        radial-gradient(120px 80px at -20% -20%, var(--accent-soft), transparent 60%),
+        #0b1020;
+      border: 1px solid rgba(255, 255, 255, .10);
+    }
+
+    /* Make inner content a column so actions go to the bottom */
+    .project>div:last-child {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      /* prevent overflow */
+    }
+
+    .project p {
+      margin-bottom: 12px;
+      color: var(--muted)
+    }
+
+    .actions {
+      margin-top: auto;
+    }
+
+    /* <-- this aligns all Read More buttons */
+
+    /* Accent helpers you can sprinkle per card */
+    .accent-cyan {
+      --accent: var(--cyan);
+    }
+
+    .accent-blue {
+      --accent: var(--blue);
+    }
+
+    .accent-violet {
+      --accent: var(--violet);
+    }
+
+    .accent-rose {
+      --accent: var(--rose);
+    }
+
+    .accent-amber {
+      --accent: var(--amber);
+    }
+
+    .accent-emerald {
+      --accent: var(--emerald);
+    }
+
+    /* --- Header logo styles --- */
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .logo {
+      display: inline-flex;
+      line-height: 0
+    }
+
+    .logo img {
+      height: 62px;
+      width: auto;
+      display: block
+    }
+
+    /* tighten the sub-slogan under/next to the logo */
+    .tag {
+      margin-top: 2px
+    }
+
+    /* --- Mobile header stacking --- */
+    @media (max-width: 720px) {
+      nav {
+        flex-direction: column;
+        /* stack everything */
+        align-items: center;
+        gap: 10px;
+      }
+
+      .brand-wrap {
+        order: 1;
+        text-align: center;
+        flex-direction: column;
+        gap: 6px
+      }
+
+      .nav-right {
+        order: 2;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* buttons centered under logo */
+        gap: 10px;
+      }
+    }
+
+    button {
+      color: var(--text);
+    }
+
+    /* Optional: make header a bit denser on small screens */
+    @media (max-width: 720px) {
+      header nav {
+        padding: 12px 0
+      }
+
+      .logo img {
+        height: 48px
+      }
+
+      .tag {
+        font-size: .9rem
+      }
+    }
+
+    /* --- Astifan System timeline --- */
+    .timeline-wrap {
+      position: relative;
+    }
+
+    .tl {
+      list-style: none;
+      margin: 0;
+      padding: 10px 0 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 36px;
+      position: relative;
+    }
+
+    .tl::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(94, 234, 212, .20), rgba(255, 255, 255, .06));
+      transform: translateX(-1px);
+    }
+
+    .tl li {
+      position: relative;
+    }
+
+    .tl li:nth-child(odd) {
+      grid-column: 1;
+      padding-right: 22px;
+    }
+
+    .tl li:nth-child(even) {
+      grid-column: 2;
+      padding-left: 22px;
+    }
+
+    .tl-node {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(10px 10px at 50% 50%, var(--accent, var(--accent-2)), #0b1020);
+      border: 2px solid color-mix(in oklab, var(--accent, var(--accent-2)) 55%, #fff 0%);
+      box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent, var(--accent-2)) 18%, transparent);
+    }
+
+    .tl-card {
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+
+    .tl-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18);
+      box-shadow: 0 16px 40px rgba(2, 6, 23, .45)
+    }
+
+    .tl-year {
+      align-self: flex-start;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .2px;
+      background: rgba(94, 234, 212, .10);
+      border: 1px solid rgba(94, 234, 212, .25);
+    }
+
+    .tl h3 {
+      margin: 0;
+      font-size: 1.05rem
+    }
+
+    .tl p {
+      margin: 0;
+      color: var(--muted)
+    }
+
+    /* subtle “divider with text” style (optional helper) */
+    .hr-text {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .18), transparent);
+      position: relative;
+      margin: 8px 0 20px;
+    }
+
+    .hr-text::after {
+      content: attr(data-content);
+      position: absolute;
+      left: 50%;
+      top: -12px;
+      transform: translateX(-50%);
+      padding: 2px 10px;
+      font-weight: 700;
+      font-size: .85rem;
+      color: var(--muted);
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .10);
+      border-radius: 999px;
+    }
+
+    /* Accent helpers (reuse from earlier step if you already added them) */
+    :root {
+      --cyan: #22d3ee;
+      --blue: #60a5fa;
+      --violet: #a78bfa;
+      --rose: #fb7185;
+      --amber: #fbbf24;
+      --emerald: #34d399;
+    }
+
+    .accent-cyan {
+      --accent: var(--cyan);
+    }
+
+    .accent-blue {
+      --accent: var(--blue);
+    }
+
+    .accent-violet {
+      --accent: var(--violet);
+    }
+
+    .accent-rose {
+      --accent: var(--rose);
+    }
+
+    .accent-amber {
+      --accent: var(--amber);
+    }
+
+    .accent-emerald {
+      --accent: var(--emerald);
+    }
+
+    /* Keep the spine under the nodes/cards */
+    .tl {
+      position: relative;
+    }
+
+    .tl::before {
+      z-index: 0;
+    }
+
+    /* Make nodes sit above cards and visible */
+    .tl-node {
+      z-index: 2;
+      background: radial-gradient(10px 10px at 50% 50%, var(--accent, var(--accent-2)), #0b1020);
+      border: 2px solid var(--accent, var(--accent-2));
+      /* fallback border */
+      box-shadow: 0 0 0 4px rgba(96, 165, 250, .20);
+      /* fallback glow */
+    }
+
+    /* If color-mix is supported, use the nicer glow/border */
+    @supports (color: color-mix(in oklab, red, blue)) {
+      .tl-node {
+        border-color: color-mix(in oklab, var(--accent, var(--accent-2)) 55%, #fff 0%);
+        box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent, var(--accent-2)) 18%, transparent);
+      }
+    }
+
+    /* Mobile rail geometry — give nodes a bit more breathing room */
+    @media (max-width: 960px) {
+      .tl::before {
+        left: 26px;
+      }
+
+      /* was 22px */
+      .tl li {
+        padding-left: 60px;
+      }
+
+      /* was 44px */
+      .tl-node {
+        left: 26px;
+      }
+
+      /* keep centered on the rail */
+    }
+
+    /* --- ImMobile Story --- */
+    .story-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .story-card {
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18);
+      box-shadow: 0 16px 40px rgba(2, 6, 23, .45);
+    }
+
+    .story-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      letter-spacing: .2px;
+    }
+
+    .story-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    /* --- Windows Universal Tool Section --- */
+    #wut {
+      background:
+        radial-gradient(800px 500px at 80% 0%, rgba(96, 165, 250, .08), transparent 70%),
+        linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .wut-inner {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: start;
+    }
+
+    .wut-text p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .wut-features {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+
+    .wut-feature {
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      font-size: .92rem;
+      font-weight: 500;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+
+    .wut-feature:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18);
+    }
+
+    .commander-highlight {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      background: rgba(96, 165, 250, .08);
+      border: 1px solid rgba(96, 165, 250, .25);
+    }
+
+    .commander-highlight h4 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      letter-spacing: .2px;
+    }
+
+    .commander-highlight p {
+      margin: 0;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    /* Mobile adjustments */
+    @media(max-width: 860px) {
+      .wut-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* WUT features: mobile collapse */
+    @media (max-width: 860px) {
+      .wut-features {
+        max-height: 230px;
+        /* ~6 tiles */
+        overflow: hidden;
+        position: relative;
+      }
+
+      .wut-features::after {
+        /* subtle fade */
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 48px;
+        background: linear-gradient(180deg, transparent, var(--card));
+      }
+
+      .wut-features.is-open {
+        max-height: none;
+      }
+
+      .wut-features.is-open::after {
+        display: none;
+      }
+
+      .wut-toggle {
+        margin-top: 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        padding: 8px 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, .14);
+        background: linear-gradient(180deg, var(--card-2), var(--card));
+        font-weight: 600;
+        font-size: .92rem;
+      }
+    }
+
+    /* --- Milestones as colored cards --- */
+    .milestones {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .milestone {
+      --accent: var(--accent-2);
+      /* per-card override via .accent-* */
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .milestone:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18);
+      box-shadow: 0 16px 40px rgba(2, 6, 23, .45)
+    }
+
+    /* accent line + dot (subtle, decorative) */
+    .milestone::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: .65;
+    }
+
+    .m-dot {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px color-mix(in oklab, var(--accent) 18%, transparent);
+    }
+
+    /* content */
+    .ms-year {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .9rem;
+      background: color-mix(in oklab, var(--accent) 18%, transparent);
+      border: 1px solid color-mix(in oklab, var(--accent) 35%, transparent);
+    }
+
+    .milestone h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem
+    }
+
+    .milestone p {
+      margin: 0;
+      color: var(--muted)
+    }
+
+    /* accent helpers (reuse your palette) */
+    .accent-cyan {
+      --accent: #22d3ee
+    }
+
+    .accent-blue {
+      --accent: #60a5fa
+    }
+
+    .accent-violet {
+      --accent: #a78bfa
+    }
+
+    .accent-rose {
+      --accent: #fb7185
+    }
+
+    .accent-amber {
+      --accent: #fbbf24
+    }
+
+    .accent-emerald {
+      --accent: #34d399
+    }
+
+    /* if the old timeline HTML still exists, hide it */
+    #timeline .tl {
+      display: none !important;
+    }
+
+    /* --- Rich colors for WUT --- */
+    #windows-universal-tool #wut {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .10);
+      /* aurora background */
+      background:
+        radial-gradient(900px 520px at 90% 0%, color-mix(in oklab, #60a5fa 22%, transparent), transparent 70%),
+        radial-gradient(700px 420px at 8% 100%, color-mix(in oklab, #34d399 18%, transparent), transparent 70%),
+        radial-gradient(620px 500px at 40% -10%, color-mix(in oklab, #a78bfa 12%, transparent), transparent 70%),
+        linear-gradient(180deg, var(--card-2), var(--card));
+    }
+
+    #windows-universal-tool #wut::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      border-radius: var(--radius) var(--radius) 0 0;
+      background: linear-gradient(90deg, #60a5fa, #a78bfa, #34d399);
+      opacity: .75;
+      pointer-events: none;
+    }
+
+    /* Gradient title text just for this section */
+    #windows-universal-tool .section-title h2 {
+      background: linear-gradient(90deg, #60a5fa, #a78bfa, #34d399);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Commander highlight gets a soft blue/violet wash */
+    #windows-universal-tool .commander-highlight {
+      background:
+        linear-gradient(180deg,
+          color-mix(in oklab, #60a5fa 12%, transparent),
+          color-mix(in oklab, #a78bfa 10%, transparent)),
+        linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid color-mix(in oklab, #60a5fa 35%, transparent);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06);
+    }
+
+    #windows-universal-tool .commander-highlight h4 {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0 0 6px;
+    }
+
+    #windows-universal-tool .commander-highlight .i {
+      width: 20px;
+      height: 20px
+    }
+
+    /* Feature pills: colorful, with cycling accents */
+    #windows-universal-tool .wut-feature {
+      --chip: #60a5fa;
+      /* default */
+      --chip-soft: color-mix(in oklab, var(--chip) 22%, transparent);
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, .10);
+      background:
+        linear-gradient(180deg, var(--card-2), var(--card)),
+        radial-gradient(120% 120% at 100% -30%, var(--chip-soft), transparent 60%);
+      transition: transform .15s ease, border-color .15s ease;
+    }
+
+    #windows-universal-tool .wut-feature:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18);
+    }
+
+    /* cycle hues automatically across items */
+    #windows-universal-tool .wut-feature:nth-child(6n+1) {
+      --chip: #22d3ee;
+    }
+
+    /* cyan */
+    #windows-universal-tool .wut-feature:nth-child(6n+2) {
+      --chip: #60a5fa;
+    }
+
+    /* blue */
+    #windows-universal-tool .wut-feature:nth-child(6n+3) {
+      --chip: #a78bfa;
+    }
+
+    /* violet */
+    #windows-universal-tool .wut-feature:nth-child(6n+4) {
+      --chip: #34d399;
+    }
+
+    /* emerald */
+    #windows-universal-tool .wut-feature:nth-child(6n+5) {
+      --chip: #fbbf24;
+    }
+
+    /* amber */
+    #windows-universal-tool .wut-feature:nth-child(6n+6) {
+      --chip: #fb7185;
+    }
+
+    /* rose */
+
+    /* Works with your existing mobile “Show all features” collapse */
+    @media (max-width: 860px) {
+      #windows-universal-tool .wut-features::after {
+        /* fade overlay matches colorful background nicely */
+        background: linear-gradient(180deg, transparent, var(--card));
+      }
+    }
+
+    /* ImMobile: rich colored cards (HTML stays the same) */
+    #immobile-story .story-card {
+      --accent: var(--accent-2);
+      /* set by .accent-* on each card */
+      position: relative;
+      overflow: hidden;
+      background:
+        /* soft accent wash */
+        radial-gradient(420px 220px at 110% -20%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 65%),
+        radial-gradient(320px 200px at -10% 120%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 70%),
+        linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+
+    #immobile-story .story-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18);
+      box-shadow: 0 16px 40px rgba(2, 6, 23, .45);
+    }
+
+    /* slim accent ribbon on the top edge */
+    #immobile-story .story-card::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: .75;
+      pointer-events: none;
+    }
+
+    /* make headings/icons pick up the accent color */
+    #immobile-story .story-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 8px;
+      background: linear-gradient(90deg, color-mix(in oklab, var(--accent) 85%, #fff 0%), color-mix(in oklab, var(--accent) 45%, #fff 0%));
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    #immobile-story .story-card h3 .i {
+      width: 20px;
+      height: 20px;
+      color: var(--accent);
+    }
+
+    #immobile-story .story-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* per-card accents (reuse anywhere) */
+    .accent-cyan {
+      --accent: #22d3ee
+    }
+
+    .accent-blue {
+      --accent: #60a5fa
+    }
+
+    .accent-emerald {
+      --accent: #34d399
+    }
+
+    .accent-violet {
+      --accent: #a78bfa
+    }
+
+    .accent-amber {
+      --accent: #fbbf24
+    }
+
+    .accent-rose {
+      --accent: #fb7185
+    }
+
+    /* graceful fallback for browsers without color-mix */
+    @supports not (color: color-mix(in oklab, red, blue)) {
+      #immobile-story .story-card {
+        background:
+          radial-gradient(420px 220px at 110% -20%, rgba(96, 165, 250, .16), transparent 65%),
+          linear-gradient(180deg, var(--card-2), var(--card));
+      }
+
+      #immobile-story .story-card h3 {
+        color: var(--accent);
+        background: none;
+      }
+    }
+
+    /* ================================
+   Milestones — rich colored cards
+   ================================ */
+    #milestones .section-title h2 {
+      background: linear-gradient(90deg, #22d3ee, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    #milestones .milestone {
+      /* accent comes from .accent-* on each <article> */
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(420px 220px at 110% -20%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 65%),
+        radial-gradient(320px 200px at -10% 120%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 70%),
+        linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+
+    #milestones .milestone:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18);
+      box-shadow: 0 16px 40px rgba(2, 6, 23, .45);
+    }
+
+    /* thin accent ribbon */
+    #milestones .milestone::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: .75;
+      pointer-events: none;
+    }
+
+    /* year pill + dot pick up accent */
+    #milestones .ms-year {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .9rem;
+      background: color-mix(in oklab, var(--accent) 18%, transparent);
+      border: 1px solid color-mix(in oklab, var(--accent) 35%, transparent);
+    }
+
+    #milestones .m-dot {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px color-mix(in oklab, var(--accent) 18%, transparent);
+    }
+
+    /* graceful fallback for browsers without color-mix */
+    @supports not (color: color-mix(in oklab, red, blue)) {
+      #milestones .milestone {
+        background:
+          radial-gradient(420px 220px at 110% -20%, rgba(96, 165, 250, .16), transparent 65%),
+          linear-gradient(180deg, var(--card-2), var(--card));
+      }
+
+      #milestones .ms-year {
+        background: rgba(96, 165, 250, .12);
+        border-color: rgba(96, 165, 250, .28);
+      }
+
+      #milestones .m-dot {
+        background: #60a5fa;
+        box-shadow: 0 0 0 6px rgba(96, 165, 250, .18);
+      }
+    }
+
+    /* ================================
+   About — auto-accent each card
+   ================================ */
+    #about .about .card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(380px 200px at 110% -20%, color-mix(in oklab, var(--accent, #60a5fa) 14%, transparent), transparent 65%),
+        linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .10);
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+
+    #about .about .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18);
+      box-shadow: 0 16px 40px rgba(2, 6, 23, .45)
+    }
+
+    /* auto-assign accents without changing HTML */
+    #about .about .card:nth-of-type(1) {
+      --accent: #60a5fa
+    }
+
+    /* Personal */
+    #about .about .card:nth-of-type(2) {
+      --accent: #34d399
+    }
+
+    /* Journey */
+    #about .about .card:nth-of-type(3) {
+      --accent: #22d3ee
+    }
+
+    /* Development */
+    #about .about .card:nth-of-type(4) {
+      --accent: #a78bfa
+    }
+
+    /* Art & Production */
+
+    /* headings get a subtle tint */
+    #about .about .card h3 {
+      margin: 0 0 8px;
+      background: linear-gradient(90deg,
+          color-mix(in oklab, var(--accent) 85%, #fff 0%),
+          color-mix(in oklab, var(--accent) 45%, #fff 0%));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* list bullets get accent dots */
+    #about .about .card ul.list li {
+      position: relative;
+    }
+
+    /* chips: colorful but subtle */
+    #about .chips .chip {
+      --chip: var(--accent, #60a5fa);
+      border: 1px solid color-mix(in oklab, var(--chip) 30%, transparent);
+      background:
+        linear-gradient(180deg, var(--card-2), var(--card)),
+        radial-gradient(120% 120% at 100% -30%, color-mix(in oklab, var(--chip) 18%, transparent), transparent 60%);
+    }
+
+    /* cycle chip hues for variety */
+    #about .chips .chip:nth-child(6n+1) {
+      --chip: #22d3ee
+    }
+
+    #about .chips .chip:nth-child(6n+2) {
+      --chip: #60a5fa
+    }
+
+    #about .chips .chip:nth-child(6n+3) {
+      --chip: #a78bfa
+    }
+
+    #about .chips .chip:nth-child(6n+4) {
+      --chip: #34d399
+    }
+
+    #about .chips .chip:nth-child(6n+5) {
+      --chip: #fbbf24
+    }
+
+    #about .chips .chip:nth-child(6n+6) {
+      --chip: #fb7185
+    }
+
+    /* ================================
+   Contact — soft cyan/violet wash
+   ================================ */
+    #contact .card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(380px 200px at 0% 120%, color-mix(in oklab, #22d3ee 14%, transparent), transparent 70%),
+        radial-gradient(360px 200px at 110% -20%, color-mix(in oklab, #a78bfa 10%, transparent), transparent 70%),
+        linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .10);
+      box-shadow: var(--shadow);
+    }
+
+    #contact a {
+      border-bottom: 1px dashed rgba(255, 255, 255, .25);
+    }
+
+    #contact a:hover {
+      border-bottom-color: rgba(255, 255, 255, .45);
+    }
+
+    /* =========================
+   HERO — rich, elegant look
+   ========================= */
+
+    /* Bigger breathing room */
+    .hero {
+      padding: 96px 0 56px;
+    }
+
+    /* Aurora card with gentle color wash */
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(720px 420px at 95% -20%, color-mix(in oklab, #22d3ee 18%, transparent), transparent 68%),
+        radial-gradient(600px 380px at -10% 110%, color-mix(in oklab, #a78bfa 14%, transparent), transparent 70%),
+        linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    /* Animated gradient name */
+    .hero .brand {
+      background: linear-gradient(90deg, #22d3ee, #60a5fa, #a78bfa, #34d399);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: brand-pan 9s ease-in-out infinite alternate;
+      letter-spacing: .3px;
+    }
+
+    @keyframes brand-pan {
+      to {
+        background-position: 100% 0;
+      }
+    }
+
+    /* Headline + copy polish */
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.08;
+    }
+
+    .hero-card p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 65ch
+    }
+
+    /* Badges: colorful pills that auto-cycle hues */
+    .badges {
+      gap: 10px;
+      margin-top: 12px
+    }
+
+    .badges .badge {
+      --chip: #60a5fa;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: 7px 11px;
+      border-radius: 999px;
+      border: 1px solid color-mix(in oklab, var(--chip) 32%, transparent);
+      background:
+        linear-gradient(180deg, var(--card-2), var(--card)),
+        radial-gradient(120% 140% at 100% -30%, color-mix(in oklab, var(--chip) 18%, transparent), transparent 60%);
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    .badges .badge:nth-child(6n+1) {
+      --chip: #22d3ee
+    }
+
+    /* cyan */
+    .badges .badge:nth-child(6n+2) {
+      --chip: #60a5fa
+    }
+
+    /* blue */
+    .badges .badge:nth-child(6n+3) {
+      --chip: #a78bfa
+    }
+
+    /* violet */
+    .badges .badge:nth-child(6n+4) {
+      --chip: #34d399
+    }
+
+    /* emerald */
+    .badges .badge:nth-child(6n+5) {
+      --chip: #fbbf24
+    }
+
+    /* amber */
+    .badges .badge:nth-child(6n+6) {
+      --chip: #fb7185
+    }
+
+    /* rose */
+
+    /* Right column stats: glossy cards with accent stripe + gradient text numbers */
+    .hero-aside {
+      gap: 14px
+    }
+
+    .stat {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      padding: 18px;
+      background:
+        radial-gradient(420px 220px at 110% -20%, color-mix(in oklab, #60a5fa 12%, transparent), transparent 70%),
+        linear-gradient(180deg, var(--card-2), var(--card));
+      border: 1px solid rgba(255, 255, 255, .10);
+      box-shadow: var(--shadow);
+    }
+
+    .stat::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+      background: linear-gradient(90deg, #22d3ee, #60a5fa, #a78bfa);
+      opacity: .7;
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 4px;
+      background: linear-gradient(90deg, #a78bfa, #60a5fa, #22d3ee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 1.5rem;
+      line-height: 1.15;
+      letter-spacing: .2px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    /* Motion-respect: stop animations if user prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .hero .brand {
+        animation: none;
+        background-position: 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Inline SVG sprite (no external assets needed) -->
+  <svg aria-hidden="true" width="0" height="0" style="position:absolute">
+    <symbol id="i-phone" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm5 18a1.25 1.25 0 1 0 0-2.5A1.25 1.25 0 0 0 12 20zM6.5 5h11" />
+    </symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z" />
+    </symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2l2.2 5.6L20 10l-5.8 2.4L12 18l-2.2-5.6L4 10l5.8-2.4L12 2z" />
+    </symbol>
+    <symbol id="i-tools" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M7 2l3 3-2 2 3 3-2 2-3-3-2 2-2-2 2-2L2 5zM14 12l8 8-2 2-8-8zM17 3a4 4 0 0 1 4 4v1l-2 2-3-3 2-2" />
+    </symbol>
+    <symbol id="i-game" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M6 8h12a4 4 0 0 1 4 4v4a3 3 0 0 1-3 3h-1.5l-2-2h-7l-2 2H5a3 3 0 0 1-3-3v-4a4 4 0 0 1 4-4zm3 3H7v2H5v2h2v2h2v-2h2v-2H9zm8 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm2 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+    </symbol>
+    <symbol id="i-legacy" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M4 4h16v12H4zM2 18h20v2H2zM7 6h10v2H7zM7 10h6v2H7z" />
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M5 12h11l-4-4 1.4-1.4L20.8 13l-7.4 6.4L12 18l4-4H5z" />
+    </symbol>
+    <!-- Touch / Hand icon -->
+    <symbol id="i-touch" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M9 11V2a1 1 0 0 1 2 0v9h1V5a1 1 0 0 1 2 0v6h1V7a1 1 0 0 1 2 0v8.6l2.09-1.24a1 1 0 0 1 1.41.37l1 1.73a1 1 0 0 1-.37 1.36l-6.46 3.83A5 5 0 0 1 9 17.72V11H9z" />
+    </symbol>
+
+    <!-- Window / Layout icon -->
+    <symbol id="i-window" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M3 4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4zm2 0v4h14V4H5zm0 6v10h14V10H5z" />
+    </symbol>
+  </svg>
+
+  <header>
+    <div class="container">
+      <nav aria-label="Primary">
+        <div class="brand-wrap">
+          <a class="logo" href="/" aria-label="Astifan Online home">
+            <!-- Dark/Light auto swap (use your real files) -->
+            <picture>
+              <source srcset="./assets/astifan.png" media="(prefers-color-scheme: light)">
+              <img src="./assets/astifan.png" alt="Astifan Online" height="62">
+            </picture>
+          </a>
+        </div>
+        <div class="nav-right">
+          <a class="btn ghost" href="#projects" aria-label="Skip to Projects">Projects</a>
+          <a class="btn" href="#about">About</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-card">
+          <h1><span class="brand">Bashar Astifan</span></h1>
+          <p>I build flexible, high-performance systems and media experiences. I set the right foundations, design for
+            security and speed, and turn complex goals into elegant, scalable products.</p>
+          <div class="badges" aria-label="Key strengths">
+            <span class="badge">Systems Architecture</span>
+            <span class="badge">C/C++ • UWP • AI</span>
+            <span class="badge">Media &amp; Production</span>
+            <span class="badge">Performance &amp; Flexibility</span>
+          </div>
+        </div>
+
+        <div class="hero-aside" aria-label="Highlights">
+          <div class="stat"><strong>9+ years</strong><span>Media &amp; production expertise</span></div>
+          <div class="stat"><strong>No-Limits</strong><span>C/C++, C#, PHP, JS, SQL, UWP</span></div>
+          <div class="stat"><strong>Founder</strong><span>ImMobile • A.System • WUT • SpectAI</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p>Each built to be fast, secure, and future-proof.</p>
+        </div>
+
+        <div class="grid projects">
+          <!-- 1 ImMobile -->
+          <article class="project accent-cyan" aria-labelledby="p-immobile">
+            <div class="icon" aria-hidden="true"><svg class="i">
+                <use href="#i-grid" />
+              </svg></div>
+            <div>
+              <h3 id="p-immobile">ImMobile</h3>
+              <p>Universal shell aiming for a desktop-like experience from early Windows builds. Built with
+                <strong>ImGui</strong> + <strong>C++</strong> for performance and flexibility.
+              </p>
+              <div class="actions">
+                <a target="_blank" class="readmore" href="https://imm.astifan.online/">Read More <svg class="i">
+                    <use href="#i-arrow" />
+                  </svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2 Windows Universal Tool -->
+          <article class="project accent-blue" aria-labelledby="p-wut">
+            <div class="icon" aria-hidden="true"><svg class="i">
+                <use href="#i-tools" />
+              </svg></div>
+            <div>
+              <h3 id="p-wut">Windows Universal Tool</h3>
+              <p>A powerful, unified tool that brings complex Windows UWP tasks together in one place for advanced
+                workflows.</p>
+              <div class="actions">
+                <a target="_blank" class="readmore" href="https://wut.astifan.online/">Read More <svg class="i">
+                    <use href="#i-arrow" />
+                  </svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3 SPECTAI -->
+          <article class="project accent-violet" aria-labelledby="p-spectai">
+            <div class="icon" aria-hidden="true"><svg class="i">
+                <use href="#i-spark" />
+              </svg></div>
+            <div>
+              <h3 id="p-spectai">SPECTAI</h3>
+              <p>Pioneering the future of social media with AI. Bringing ideas to life through AI-powered visuals and
+                systems.</p>
+              <div class="actions">
+                <a target="_blank" class="readmore" href="https://spectai.net/">Read More <svg class="i">
+                    <use href="#i-arrow" />
+                  </svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4 Astifan System -->
+          <article class="project accent-emerald" aria-labelledby="p-astifan">
+            <div class="icon" aria-hidden="true"><svg class="i">
+                <use href="#i-phone" />
+              </svg></div>
+            <div>
+              <h3 id="p-astifan">Astifan System</h3>
+              <p>A powerful system for creating your own website, services, and
+                more. Designed to solve real-world issues in <strong>security</strong>, <strong>performance</strong>,
+                and <strong>flexibility</strong></p>
+              <div class="actions">
+                <a target="_blank" class="readmore" href=".\assets\system.pdf">Read More <svg class="i">
+                    <use href="#i-arrow" />
+                  </svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5 RetriXGold -->
+          <article class="project accent-amber" aria-labelledby="p-retrix">
+            <div class="icon" aria-hidden="true"><svg class="i">
+                <use href="#i-game" />
+              </svg></div>
+            <div>
+              <h3 id="p-retrix">RetriXGold (Universal Emulator)</h3>
+              <p>Libretro frontend as a UWP app. The only frontend with native support for <strong>Windows on
+                  ARM</strong> devices, plus x64 and x86.</p>
+              <div class="actions">
+                <a target="_blank" class="readmore" href="https://retrix.astifan.online/">Read More <svg class="i">
+                    <use href="#i-arrow" />
+                  </svg></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6 Community Windows Legacy Ports -->
+          <article class="project accent-rose" aria-labelledby="p-legacy">
+            <div class="icon" aria-hidden="true"><svg class="i">
+                <use href="#i-legacy" />
+              </svg></div>
+            <div>
+              <h3 id="p-legacy">Community Windows Legacy Ports</h3>
+              <p>RetroArch for UWP ARM32 • PPSSPP for UWP ARM32 — community efforts to keep great software running on
+                legacy platforms.</p>
+              <div class="actions">
+                <a target="_blank" class="readmore"
+                  href="https://github.com/basharast?tab=repositories&q=-ARM&type=&language=&sort=">Read More <svg
+                    class="i">
+                    <use href="#i-arrow" />
+                  </svg></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="immobile-story">
+      <div class="container">
+        <div class="section-title">
+          <h2>ImMobile</h2>
+          <p>Years of heavy development</p>
+        </div>
+
+        <div class="story-grid">
+          <div class="story-card accent-cyan">
+            <h3>📘 Origins: NTU Project</h3>
+            <p>ImMobile began as <strong>NT Universal (NTU)</strong>, aiming to deliver a desktop-like environment on
+              early Windows builds and abandoned hardware. Built in <strong>C++</strong> + <strong>ImGui</strong> for
+              raw performance and flexibility.</p>
+          </div>
+
+          <div class="story-card accent-blue">
+            <h3>🚀 Why Build It?</h3>
+            <p>UWP and .NET/XAML were too heavy and incompatible with older Windows. ImMobile bypassed these limits by
+              going low-level, avoiding framework bloat and memory leaks.</p>
+          </div>
+
+          <div class="story-card accent-emerald">
+            <h3>⚙ Challenges</h3>
+            <p>Porting tools like WUT to Windows 8.1 was nearly impossible with C#/XAML. Licensing politics and lack of
+              support for legacy platforms pushed the need for a custom, self-controlled system.</p>
+          </div>
+
+          <div class="story-card accent-violet">
+            <h3>📈 Growth</h3>
+            <p>What started as a simple grid UI became a full environment with advanced calculations. Months of work
+              brought it to both Windows 10 and 8.1, overcoming platform quirks.</p>
+          </div>
+
+          <div class="story-card accent-amber">
+            <h3>✋ Touch Handling</h3>
+            <p>ImMobile’s custom touch engine interprets taps, holds, gestures, and context-sensitive actions with
+              precision. Designed to avoid accidental triggers, adapt to orientation, and keep UI responsive even on
+              small screens.</p>
+          </div>
+
+          <div class="story-card accent-rose">
+            <h3><svg class="i">
+                <use href="#i-window" />
+              </svg> Windowing System</h3>
+            <p>Supports multiple windows, taskbar integration, and resource-aware rendering. Includes default controls,
+              state tracking, and popup-aware focus — all calculated for a desktop-like experience on mobile and touch
+              devices.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="windows-universal-tool">
+      <div class="container">
+        <div id="wut">
+          <div class="section-title">
+            <h2>WUT</h2>
+            <p>4+ years for community</p>
+          </div>
+
+          <div class="wut-inner">
+            <!-- Left: description -->
+            <div class="wut-text">
+              <p>Built entirely from scratch yet shaped by countless community ideas, suggestions, and open-source
+                libraries, <strong>Windows Universal Tool (WUT)</strong> is a privacy-first, universal UWP toolkit. It’s
+                designed to be flexible, multilingual, and packed with features for power users — all with 0% data
+                collection.</p>
+
+              <div class="commander-highlight">
+                <h4><svg class="i">
+                    <use href="#i-tools" />
+                  </svg> Commander — Script Engine</h4>
+                <p>Create unlimited scripts with simple, GUI-driven structures. Combine Commander code with batch
+                  scripts for automation, downloads, network tools, and more. Fully documented with demos in the
+                  installation package.</p>
+              </div>
+            </div>
+
+            <!-- Right: features grid -->
+            <div class="wut-features" id="wutFeatures">
+              <div class="wut-feature">Universal (UWP)</div>
+              <div class="wut-feature">Privacy (0% collection)</div>
+              <div class="wut-feature">Multi-language</div>
+              <div class="wut-feature">Scripts Engine</div>
+              <div class="wut-feature">Batch Download</div>
+              <div class="wut-feature">MEGA.nz Client</div>
+              <div class="wut-feature">Unsplash Client</div>
+              <div class="wut-feature">Print Service</div>
+              <div class="wut-feature">Image Effects</div>
+              <div class="wut-feature">Built-in Browser</div>
+              <div class="wut-feature">Package Management</div>
+              <div class="wut-feature">Download Client</div>
+              <div class="wut-feature">Media Preview</div>
+              <div class="wut-feature">Advanced Settings</div>
+            </div>
+            <button class="wut-toggle" id="wutToggle" aria-expanded="false" hidden>Show all features</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="milestones">
+      <div class="container">
+        <div class="section-title">
+          <h2>Astifan System</h2>
+          <p>Years of development</p>
+        </div>
+
+        <div class="milestones">
+          <article class="milestone accent-emerald">
+            <span class="m-dot" aria-hidden="true"></span>
+            <span class="ms-year">2020</span>
+            <h3>Release</h3>
+            <p>After extensive performance and security testing, the system reached a stable release.</p>
+          </article>
+
+          <article class="milestone accent-rose">
+            <span class="m-dot" aria-hidden="true"></span>
+            <span class="ms-year">2018</span>
+            <h3>Security</h3>
+            <p>Focused deeply on real-world security risks and hardened the platform against common threats.</p>
+          </article>
+
+          <article class="milestone accent-blue">
+            <span class="m-dot" aria-hidden="true"></span>
+            <span class="ms-year">2017</span>
+            <h3>Development</h3>
+            <p>Main build kicked off after structural prep and early testing—overcoming plenty of challenges.</p>
+          </article>
+
+          <article class="milestone accent-amber">
+            <span class="m-dot" aria-hidden="true"></span>
+            <span class="ms-year">2016</span>
+            <h3>Pre-development</h3>
+            <p>Heavy prototyping and validation to avoid costly mistakes before full development.</p>
+          </article>
+
+          <article class="milestone accent-cyan">
+            <span class="m-dot" aria-hidden="true"></span>
+            <span class="ms-year">2015</span>
+            <h3>Structure</h3>
+            <p>Planned a modular core and flexible database to support clean management and growth.</p>
+          </article>
+
+          <article class="milestone accent-violet">
+            <span class="m-dot" aria-hidden="true"></span>
+            <span class="ms-year">2014</span>
+            <h3>Research</h3>
+            <p>Explored performance and security trade-offs to be both fast and safe from day one.</p>
+          </article>
+
+          <article class="milestone accent-rose">
+            <span class="m-dot" aria-hidden="true"></span>
+            <span class="ms-year">2013</span>
+            <h3>Idea</h3>
+            <p>Originated the concept of a smart system to build advanced sites with less code.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / JOURNEY / SKILLS -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Bashar</h2>
+          <p>Solutions-first. Strong foundations. Fast learner.</p>
+        </div>
+
+        <div class="about">
+          <div class="card" aria-labelledby="c-personal">
+            <h3 id="c-personal">Personal</h3>
+            <p>I bring solutions and set the correct bases for any project—whether I’m leading or part of a team. I work
+              across development and media/production, learn fast, and focus on what matters. Hope and persistence drive
+              my work.</p>
+            <p class="mono">“There is a solution for everything.”</p>
+          </div>
+
+          <div class="card" aria-labelledby="c-journey">
+            <h3 id="c-journey">Journey</h3>
+            <ul class="list" aria-label="Experience timeline">
+              <li><strong>Co-Founder — SPECTAI:</strong> Major contributor across AI-driven social media systems.</li>
+              <li><strong>Founder — ImMobile, Astifan System, Windows Universal Tool:</strong> Built to give people
+                their own flexible digital space and privacy-respecting tools.</li>
+              <li><strong>Media:</strong> 9+ years in production, documentaries, and promotions.</li>
+            </ul>
+          </div>
+
+          <div class="card" aria-labelledby="c-skills">
+            <h3 id="c-skills">Development</h3>
+            <div class="chips" role="list">
+              <span class="chip" role="listitem">C/C++</span>
+              <span class="chip" role="listitem">C# / UWP</span>
+              <span class="chip" role="listitem">AI</span>
+              <span class="chip" role="listitem">PHP / MySQL</span>
+              <span class="chip" role="listitem">HTML / CSS / JS</span>
+              <span class="chip" role="listitem">SQL</span>
+              <span class="chip" role="listitem">ASP.NET</span>
+              <span class="chip" role="listitem">Java</span>
+            </div>
+          </div>
+
+          <div class="card" aria-labelledby="c-media">
+            <h3 id="c-media">Art &amp; Production</h3>
+            <div class="chips" role="list">
+              <span class="chip" role="listitem">After Effects</span>
+              <span class="chip" role="listitem">Blender</span>
+              <span class="chip" role="listitem">3ds Max</span>
+              <span class="chip" role="listitem">Photoshop</span>
+              <span class="chip" role="listitem">Premiere / FCP</span>
+              <span class="chip" role="listitem">Avid Media Composer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="contact-title">Get in touch</h2>
+          <p>Have a something in mind? Let’s talk about it.</p>
+        </div>
+        <div class="card">
+          <p><a href="mailto:bashar@astifan.online">Email</a> &nbsp;•&nbsp; <a target="_blank"
+              href="https://github.com/basharast">GitHub</a> &nbsp;•&nbsp; <a target="_blank"
+              href="https://t.me/basharastifan">Telegram</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>© <span id="year"></span> Astifan Online — Community &amp; Smart Services</div>
+      <div class="mono">Built for performance • Privacy-minded</div>
+    </div>
+  </footer>
+
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth anchor scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    // WUT features collapse (mobile)
+    (function () {
+      const grid = document.getElementById('wutFeatures');
+      const btn = document.getElementById('wutToggle');
+      if (!grid || !btn) return;
+
+      const enable = () => { btn.hidden = false; };
+      const disable = () => { btn.hidden = true; grid.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); btn.textContent = 'Show all features'; };
+
+      const mq = window.matchMedia('(max-width: 860px)');
+      const apply = () => mq.matches ? enable() : disable();
+      apply(); mq.addEventListener?.('change', apply);
+
+      btn.addEventListener('click', () => {
+        const open = grid.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
+        btn.textContent = open ? 'Show less' : 'Show all features';
+      });
+    })();
+  </script>
+</body>
+
+</html>
